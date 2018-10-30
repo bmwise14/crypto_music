@@ -5,7 +5,8 @@
 - Rongxin Zhang
 
 ## Design Diagram:
-![diagram-design-01](https://user-images.githubusercontent.com/3782456/47756603-14b53500-dca3-11e8-8c82-dd2da7a47d4f.png)
+![diagram-design-01](https://user-images.githubusercontent.com/3782456/47757086-0ff18080-dca5-11e8-8268-8538117c6701.png)
+
 
 ## Paper Prototype
 - Photos, allallala
