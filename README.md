@@ -5,7 +5,7 @@
 - Rongxin Zhang
 
 ## Paper Prototype
-- Photos
+- Photos, allallala
 
 ## Expected Parts
 - Raspberry Pi
