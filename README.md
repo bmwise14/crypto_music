@@ -9,8 +9,8 @@
 
 
 ## Paper Prototype
-- The Outside of the music Box:
-- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each.
+- The Outside of the music Box:![Outside Box](https://photos.app.goo.gl/hhuHb2ig7KRoehEL6)
+- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: 
 
 ## Lazer Cutting Diagram:
 ![diagram-design-02](https://user-images.githubusercontent.com/3782456/47756604-14b53500-dca3-11e8-83ca-116be34e5ff7.png)
