@@ -9,8 +9,9 @@
 
 
 ## Paper Prototype
-- The Outside of the music Box:![Outside Box](https://photos.app.goo.gl/hhuHb2ig7KRoehEL6)
-- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: 
+- [The Outside of the Crypto Music Box](https://photos.app.goo.gl/hhuHb2ig7KRoehEL6)
+- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: https://photos.app.goo.gl/QDUrwAr6aoYmNBn67
+- This is a video of the paper prototype of the box. Use your imagination for the display: https://photos.app.goo.gl/bA7MGJHBktTqHKha6
 
 ## Lazer Cutting Diagram:
 ![diagram-design-02](https://user-images.githubusercontent.com/3782456/47756604-14b53500-dca3-11e8-83ca-116be34e5ff7.png)
