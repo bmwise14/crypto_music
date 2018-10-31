@@ -9,14 +9,20 @@
 
 
 ## Paper Prototype
-- Photos, allallala
+- The Outside of the music Box:
+- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each.
 
 ## Lazer Cutting Diagram:
 ![diagram-design-02](https://user-images.githubusercontent.com/3782456/47756604-14b53500-dca3-11e8-83ca-116be34e5ff7.png)
 
 ## Expected Parts
 - Raspberry Pi
-- LED Display
+- LCD Display
+- Arduino Uno
+- Ableton Live 10
+- Speaker (Maybe)
+- Light (Maybe)
+- Button and Button Selectors
 
 ## Interaction Plan
-- Pick which coin to mine, the hash functions will display, and the music will play!
+- Pick which coin to mine, the hash functions will display, and the music will play! A noise will sound out of the speaker when a coin is mined, but it will play music while the process of mining is happening. The hashes will be sent to a script, which will be ported to an Ableton Live 10 port bus, which will enable sound. The Crypto Music Box will be acting as it's own DJ. All you have to do is select which money to mine. The box will do the rest.
