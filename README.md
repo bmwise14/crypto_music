@@ -26,4 +26,4 @@
 - Button and Button Selectors
 
 ## Interaction Plan
-- Pick which coin to mine, the hash functions will display, and the music will play! A noise will sound out of the speaker when a coin is mined, but it will play music while the process of mining is happening. The hashes will be sent to a script, which will be ported to an Ableton Live 10 port bus, which will enable sound. The Crypto Music Box will be acting as it's own DJ. All you have to do is select which money to mine. The box will do the rest.
+- Pick which coin to mine, the hash functions will display, and the music will play! A noise will sound out of the speaker when a coin is mined, but it will play music while the process of mining is happening. The hashes will be sent to a script, which will be ported to an Ableton Live 10 port bus, which will enable sound. The Crypto Music Box will be acting as it's own DJ. All you have to do is select which money to mine. The box will do the rest. The hashes will change parameters of the music being played.
