@@ -9,9 +9,16 @@
 
 
 ## Paper Prototype
-- [The Outside of the Crypto Music Box](https://photos.app.goo.gl/GH1ewYuKjT5H8N9c9)
-- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: https://photos.app.goo.gl/QDUrwAr6aoYmNBn67
-- This is a video of the paper prototype crypto music box. Use your imagination for the display. Also this might not be the type of song that the hash functions make: https://photos.app.goo.gl/H6Y3xPvkqJKgPC9A6
+- [The Outside of the Crypto Music Box]
+![img_20181031_180637](https://user-images.githubusercontent.com/3782456/47823314-ff560e80-dd67-11e8-9e69-f67c99c2a042.jpg)
+The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: 
+
+[![](http://img.youtube.com/vi/jwhWBfHA8y4/0.jpg)](https://youtu.be/jwhWBfHA8y4)
+
+- This is a video of the paper prototype crypto music box. Use your imagination for the display. Also this might not be the type of song that the hash functions make:
+
+![img_20181031_131909](https://user-images.githubusercontent.com/3782456/47823051-c7020080-dd66-11e8-8967-91cfe82095dc.jpg)
+
 
 ## Lazer Cutting Diagram:
 ![diagram-design-02](https://user-images.githubusercontent.com/3782456/47756604-14b53500-dca3-11e8-83ca-116be34e5ff7.png)
