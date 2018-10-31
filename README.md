@@ -9,7 +9,7 @@
 
 
 ## Paper Prototype
-- [The Outside of the Crypto Music Box]
+- The Outside of the Crypto Music Box:
 ![img_20181031_180637](https://user-images.githubusercontent.com/3782456/47823314-ff560e80-dd67-11e8-9e69-f67c99c2a042.jpg)
 
 - The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: 
