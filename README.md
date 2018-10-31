@@ -16,6 +16,7 @@
 ![img_20181031_131909](https://user-images.githubusercontent.com/3782456/47823051-c7020080-dd66-11e8-8967-91cfe82095dc.jpg)
 
 - This is a video of the paper prototype crypto music box. Use your imagination for the display. Also this might not be the type of song that the hash functions make:
+
 [![](http://img.youtube.com/vi/jwhWBfHA8y4/0.jpg)](https://youtu.be/jwhWBfHA8y4)
 
 
