@@ -22,7 +22,7 @@
 - Arduino Uno
 - Ableton Live 10
 - Speaker (Maybe)
-- Light (Maybe)
+- Light
 - Button and Button Selectors
 
 ## Interaction Plan
