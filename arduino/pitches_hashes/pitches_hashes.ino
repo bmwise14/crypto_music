@@ -48,6 +48,8 @@
 
 int inInt;  // integer we will use for messages from the RPi
 
+int Contrast = 20;
+
 // initialize the library by associating any needed LCD interface pin
 // with the arduino pin number it is connected to
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
@@ -153,24 +155,27 @@ void trigger() {
 
 void setup() {
   Serial.begin(9600);
-  
-  // set up the LCD's number of columns and rows:
+
+  analogWrite(6,Contrast);
   lcd.begin(16, 2);
+  
+//  // set up the LCD's number of columns and rows:
+//  lcd.begin(16, 2);
   
   // Print a message to the LCD.
   lcd.print("Hashes!");
   lcd.setCursor(0, 2);
-  inInt = 666;
+//  inInt = 666;
 }
 
 void loop() {
   
-  if(Serial.available()) {
-    inInt = (int)Serial.read();
-  }
+//  if(Serial.available()) {
+//    inInt = (int)Serial.read();
+//  }
   // print any value to the lcd display from serial
-  lcd.print(inInt);
-  if (inInt == 666) { 
-    trigger();
-  }
+//  lcd.print(inInt);
+//  if (inInt == 666) { 
+//    trigger();
+//  }
 }
