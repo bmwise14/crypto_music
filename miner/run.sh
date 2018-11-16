@@ -1,0 +1,1 @@
+/cpuminer --algo qubit --url stratum+tcp://digihash.co:3012 --user DJMczFzdq2NeBPhBxrFbMJxg98mgWeRWyo --pass anything
