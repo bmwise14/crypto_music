@@ -163,7 +163,7 @@ void setup() {
 //  lcd.begin(16, 2);
   
   // Print a message to the LCD.
-  lcd.print("Hashes!");
+  lcd.print("Hashes! Bitches");
   lcd.setCursor(0, 2);
 //  inInt = 666;
 }
