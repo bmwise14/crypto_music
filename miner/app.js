@@ -44,17 +44,23 @@ function readFromSerial(){
 
   parser.on('data', function(data) {
     if (data == "turn_off" && !isOff){
+
       console.log("TURNING OFF", isOff)
+
       isOff = true;
+
       try {
         action.kill('SIGINT');
       } catch (error) {
         console.log("already off");
       }
+
     } else if (data == "turn_on" && isOff) {
       
       console.log("TURNING On", isOff)
+
       isOff = false;
+
       action = exec(
         './cpuminer --algo qubit --url stratum+tcp://digihash.co:3012 --user DJMczFzdq2NeBPhBxrFbMJxg98mgWeRWyo --pass',
         config,
@@ -75,12 +81,18 @@ function readFromSerial(){
 /*
   Send stuff to server
  */
+
+var prevHash = ""
+
 function sendToServer(){
+
   if (isOff){
     return
   }
 
+  
   if (fs.existsSync('../hashes.txt') && fs.existsSync('../result.txt')) {
+
     var found_hashes = fs.readFileSync('../hashes.txt', 'utf8');
     var result_hashes = fs.readFileSync('../result.txt', 'utf8');
   
@@ -91,13 +103,14 @@ function sendToServer(){
     
     if (hash != undefined) {
       console.log("Found");
-      writeToSerial("found_hash\n")
+      writeToSerial("found_hash")
     } else {
-      console.log("hashs");
+      console.log("hash");
       hash = result_hashes.split(",")[1]
+      prevHash = hash;
     }
 
-    if (hash == "" || hash == undefined){
+    if (hash == "" || hash == undefined || hash == prevHash){
       hash = "" +  Math.floor(Math.random() * (12389345 - 1) + 1)
     }
 
@@ -108,17 +121,17 @@ function sendToServer(){
   }
 }
 
-function sendReq(hash){
-  request
-    .post('http://f3c4c62a.ngrok.io/postjson')
-    .send({ hash: hash }) // sends a JSON post body
-    .set('accept', 'json')
-    .end((err, res) => { // console.log(err, res); 
-    });
+// function sendReq(hash){
+//   request
+//     .post('http://f3c4c62a.ngrok.io/postjson')
+//     .send({ hash: hash }) // sends a JSON post body
+//     .set('accept', 'json')
+//     .end((err, res) => { // console.log(err, res); 
+//     });
   
-  // var success = result.split(',')[0]
-  // var hashes_computed = result.split(',')[1]
-  // console.log("--> hash", success, hashes_computed);
-}
+//   var success = result.split(',')[0]
+//   var hashes_computed = result.split(',')[1]
+//   console.log("--> hash", success, hashes_computed);
+// }
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
