@@ -1,122 +1,44 @@
 /*
-  LiquidCrystal Library - Cursor
-
- Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
- library works with all LCD displays that are compatible with the
- Hitachi HD44780 driver. There are many of them out there, and you
- can usually tell them by the 16-pin interface.
-
- This sketch prints "Hello World!" to the LCD and
- uses the cursor()  and noCursor() methods to turn
- on and off the cursor.
-
- The circuit:
- * LCD RS pin to digital pin 12
- * LCD Enable pin to digital pin 11
- * LCD D4 pin to digital pin 5
- * LCD D5 pin to digital pin 4
- * LCD D6 pin to digital pin 3
- * LCD D7 pin to digital pin 2
- * LCD R/W pin to ground
- * 10K resistor:
- * ends to +5V and ground
- * wiper to LCD VO pin (pin 3)
-
- Library originally added 18 Apr 2008
- by David A. Mellis
- library modified 5 Jul 2009
- by Limor Fried (http://www.ladyada.net)
- example added 9 Jul 2009
- by Tom Igoe
- modified 22 Nov 2010
- by Tom Igoe
- modified 7 Nov 2016
- by Arturo Guadalupi
-
- This example code is in the public domain.
-
  http://www.arduino.cc/en/Tutorial/LiquidCrystalCursor
-
 */
 
 // include the library code:
+#define USE_ARDUINO_INTERRUPTS true    // Set-up low-level interrupts for most acurate BPM math.
+#include <PulseSensorPlayground.h>     // Includes the PulseSensorPlayground Library. 
 #include <LiquidCrystal.h>
 #include "pitches.h"
 
-//int sensorPin = A0;
-//int sensorValue = 0;
+//  Variables
+const int PulseWire = A2;       // PulseSensor PURPLE WIRE connected to ANALOG PIN 0
+const int LED13 = 13;          // The on-board Arduino LED, close to PIN 13.
+int Threshold = 550;           // Determine which Signal to "count as a beat" and which to ignore.
+                               // Use the "Gettting Started Project" to fine-tune Threshold Value beyond default setting.
+                               // Otherwise leave the default "550" value. 
 
 int inInt;  // integer we will use for messages from the RPi
 
+int onPin = 9;
+int alertPin = 10;
 int Contrast = 20;
+int lightSensorPin = A0;
+int analogValue = 0;
 
 // initialize the library by associating any needed LCD interface pin
 // with the arduino pin number it is connected to
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+PulseSensorPlayground pulseSensor;  // Creates an instance of the PulseSensorPlayground object called "pulseSensor"
+
+
 
 int zelda[] = {
   NOTE_E7, NOTE_F7, NOTE_FS7, NOTE_G7
 };
 
 int zelda_durations[] = {
-  2,3,3,16
-};
-
-
-// music stuff
-int melody[] = {
-  NOTE_E7, NOTE_E7, 0, NOTE_E7,
-  0, NOTE_C7, NOTE_E7, 0,
-  NOTE_G7, 0, 0,  0,
-  NOTE_G6, 0, 0, 0,
-
-  NOTE_C7, 0, 0, NOTE_G6,
-  0, 0, NOTE_E6, 0,
-  0, NOTE_A6, 0, NOTE_B6,
-  0, NOTE_AS6, NOTE_A6, 0,
-
-  NOTE_G6, NOTE_E7, NOTE_G7,
-  NOTE_A7, 0, NOTE_F7, NOTE_G7,
-  0, NOTE_E7, 0, NOTE_C7,
-  NOTE_D7, NOTE_B6, 0, 0,
-
-  NOTE_C7, 0, 0, NOTE_G6,
-  0, 0, NOTE_E6, 0,
-  0, NOTE_A6, 0, NOTE_B6,
-  0, NOTE_AS6, NOTE_A6, 0,
-
-  NOTE_G6, NOTE_E7, NOTE_G7,
-  NOTE_A7, 0, NOTE_F7, NOTE_G7,
-  0, NOTE_E7, 0, NOTE_C7,
-  NOTE_D7, NOTE_B6, 0, 0
-};
-
-int noteDurations[] = {
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-
-  9, 9, 9,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-
-  9, 9, 9,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
-  12, 12, 12, 12,
+  4,4,4,16
 };
 
 void trigger() {
@@ -126,56 +48,112 @@ void trigger() {
  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
   // scroll one position left:
   lcd.setCursor(0, 1);
-  lcd.scrollDisplayLeft();
-  lcd.println("Making Money, Bitches....");
+//  lcd.scrollDisplayLeft();
+  lcd.println("Making Money");
   // wait a bit:
-  delay(500);
 }
  
- int size = sizeof(melody) / sizeof(int);
+ int size = sizeof(zelda) / sizeof(int);
 
  for (int thisNote = 0; thisNote < size; thisNote++) {
 
   // to calculate the note duration, take one second divided by the note type.
   //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-  int noteDuration = (1000 / noteDurations[thisNote]);
-  tone(8, melody[thisNote], noteDuration);
+  int zelda_duration = (1000 / zelda_durations[thisNote]);
+  tone(8, zelda[thisNote], zelda_duration);
 
   // to distinguish the notes, set a minimum time between them.
   // the note's duration + 30% seems to work well:
-  int pauseBetweenNotes = noteDuration * 1.30;
+  int pauseBetweenNotes = zelda_duration * 1.30;
   delay(pauseBetweenNotes);
   // stop the tone playing:
   noTone(8);
   }
- exit(0);
+// exit(0);
 // delay(10000);
 
 }
 
 void setup() {
   Serial.begin(9600);
+  
+  pulseSensor.analogInput(PulseWire);   
+  pulseSensor.blinkOnPulse(LED13);       //auto-magically blink Arduino's LED with heartbeat.
+  pulseSensor.setThreshold(Threshold);   
+
+  if (pulseSensor.begin()) {
+    Serial.println("We created a pulseSensor Object !");  //This prints one time at Arduino power-up,  or on Arduino reset.  
+  }
 
   analogWrite(6,Contrast);
   lcd.begin(16, 2);
   
-//  // set up the LCD's number of columns and rows:
-//  lcd.begin(16, 2);
-  
   // Print a message to the LCD.
-  lcd.print("Hashes! Bitches");
-  lcd.setCursor(0, 2);
-//  inInt = 666;
+  lcd.print("Hashes!");
+  pinMode(onPin, OUTPUT);
+  pinMode(alertPin, OUTPUT);
 }
 
 void loop() {
   
-//  if(Serial.available()) {
-//    inInt = (int)Serial.read();
-//  }
-  // print any value to the lcd display from serial
-//  lcd.print(inInt);
-//  if (inInt == 666) { 
-//    trigger();
-//  }
+  analogValue = analogRead(lightSensorPin);
+  int myBPM = pulseSensor.getBeatsPerMinute();  // Calls function on our pulseSensor object that returns BPM as an "int".
+                                               // "myBPM" hold this BPM value now. 
+
+//    if (pulseSensor.sawStartOfBeat()) {            // Constantly test to see if "a beat happened". 
+// Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
+// Serial.print("BPM: ");                        // Print phrase "BPM: " 
+// Serial.println(myBPM);                        // Print the value inside of myBPM. 
+//}
+
+  if (analogValue > 800 and pulseSensor.sawStartOfBeat()) {
+    Serial.println("turn_on");
+    pulseSensor.blinkOnPulse(onPin);
+//    digitalWrite(onPin, HIGH);
+    
+    String hash = readSerial();
+    if (hash.indexOf("found_hash")>-1) {
+      digitalWrite(alertPin, HIGH);
+//      digitalWrite(onPin, LOW);
+      trigger();
+      digitalWrite(alertPin, LOW);
+    }
+
+
+    Serial.println(hash);
+    
+    lcd.print(myBPM);
+    lcd.setCursor(3, 1);
+    
+    lcd.print(hash);
+    
+    delay(500);
+    lcd.clear();
+  }
+  
+  else {
+    Serial.println("turn_off");
+    digitalWrite(onPin, LOW);
+
+  }
+
+  
+}
+
+// Read string from serial
+String readSerial(){
+  char incomingByte = 0;  // for incoming serial data
+  String readString = "";
+  
+  // reply only when you receive data:
+  while (Serial.available()) {
+    // read the incoming byte:
+    incomingByte = Serial.read();
+    readString += incomingByte;
+   
+  }
+  if (Serial.available() == 0){
+    Serial.flush();
+    return readString;
+  }
 }
