@@ -4,33 +4,37 @@
 - Bradley Wise
 - Rongxin Zhang
 
-## Design Diagram:
-![diagram-design-01](https://user-images.githubusercontent.com/3782456/47757086-0ff18080-dca5-11e8-8268-8538117c6701.png)
+## 1) Initial Draft and Idea
+- Our initial idea was to create a physical box that would create music by sending hashes as midi to a dj platform called Ableton Live. We had set up a miner on the raspberry pi that will be mining a type of cryptocurrency. The mining process would test many different hashes. The idea was to send a small number of these hash numbers to a python script which would be converted to readable midi notes by the computer and have them be displayed through arduino.
+- Please see [ProjectDraft.md]() for more information.
 
+## 2) Changes to Plan
+- Much of the plan remains the same. However, we had some hurdles we had to go through that made us make slight changes to the overall project. The music being created from the hashes was less than stellar and really wasn't as cool as we thought it would be. Additionally, we were a little disappointed by the lack of interaction we were following. We realized we had to make some changes. We had to create some way for our physical device to be interactive than a stationary box that just output hash numbers and made terrible music. As Wendy Ju mentioned, we should try to make a self-contained device that does not rely on outside softwares.
 
-## Paper Prototype
-- The Outside of the Crypto Music Box:
-![img_20181031_180637](https://user-images.githubusercontent.com/3782456/47823314-ff560e80-dd67-11e8-9e69-f67c99c2a042.jpg)
+## 4) Process
+Part 1 - Backend
+- a) Create a script that mines crypto currency over the raspberry pi
+- b) create a python script that sends midi notes through a virtual port to Ableton Live
+- c) Take the hashes and have them sent over as a json, which the python file can parse
 
-- The Inside (WIP) of the music box will include Raspberry Pi, LCD, Speaker (maybe), Arduino Uno, and connectors to each: 
-![img_20181031_131909](https://user-images.githubusercontent.com/3782456/47823051-c7020080-dd66-11e8-8967-91cfe82095dc.jpg)
+Part 2 - Arduino
+- a) Light Sensor - we wanted to use a light sensor
+- b) LED Display -
+- c) Lights - 
+- d) Speakers - 
+- e) Heart Rate Monitor - 
 
-- This is a video of the paper prototype crypto music box. Use your imagination for the display. Also this might not be the type of song that the hash functions make:
+Part 3 - Physical Design
+- a) Protoype 1: We first just wanted to design a physical box. We created a paper prototype that had a button, and LED Display, and a light. There was no functionality
+- b) Prototype 2: Next we wanted to put our raspberry pi, arduino device, external battery, and speakers into 
 
-[![](http://img.youtube.com/vi/jwhWBfHA8y4/0.jpg)](https://youtu.be/jwhWBfHA8y4)
+## 3) Final Design and Code 
+- Arduino
+- Pi
+- Sensors Used
+    - Light Sensor
+    - LED Display
+    - 2 Lights
+    - Heart Rate Monitor
+- Final Design
 
-
-## Lazer Cutting Diagram:
-![diagram-design-02](https://user-images.githubusercontent.com/3782456/47756604-14b53500-dca3-11e8-83ca-116be34e5ff7.png)
-
-## Expected Parts
-- Raspberry Pi
-- LCD Display
-- Arduino Uno
-- Ableton Live 10
-- Speaker (Maybe)
-- Light
-- Button and Button Selectors
-
-## Interaction Plan
-- Pick which coin to mine, the hash functions will display, and the music will play! A noise will sound out of the speaker when a coin is mined, but it will play music while the process of mining is happening. The hashes will be sent to a script, which will be ported to an Ableton Live 10 port bus, which will enable sound. The Crypto Music Box will be acting as it's own DJ. All you have to do is select which money to mine. The box will do the rest. The hashes will change parameters of the music being played.
