@@ -6,7 +6,7 @@
 
 ## 1) Initial Draft and Idea
 - Our initial idea was to create a physical box that would create music by sending hashes as midi to a dj platform called Ableton Live. We had set up a miner on the raspberry pi that will be mining a type of cryptocurrency. The mining process would test many different hashes. The idea was to send a small number of these hash numbers to a python script which would be converted to readable midi notes by the computer and have them be displayed through arduino.
-- Please see [ProjectDraft.md]() for more information.
+- Please see [ProjectDraft.md](https://github.com/bmwise14/crypto_music/blob/master/ProjectDraft.md) for more information.
 
 ## 2) Changes to Plan
 - Much of the plan remains the same. However, we had some hurdles we had to go through that made us make slight changes to the overall project. The music being created from the hashes was less than stellar and really wasn't as cool as we thought it would be. Additionally, we were a little disappointed by the lack of interaction we were following. We realized we had to make some changes. We had to create some way for our physical device to be interactive than a stationary box that just output hash numbers and made terrible music. As Wendy Ju mentioned, we should try to make a self-contained device that does not rely on outside softwares.
