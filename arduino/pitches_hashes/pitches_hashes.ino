@@ -108,9 +108,7 @@ void loop() {
 
   if (analogValue > 800 and pulseSensor.sawStartOfBeat()) {
     Serial.println("turn_on");
-    pulseSensor.blinkOnPulse(onPin);
-//    digitalWrite(onPin, HIGH);
-    
+
     String hash = readSerial();
     if (hash.indexOf("found_hash")>-1) {
       digitalWrite(alertPin, HIGH);
@@ -118,21 +116,23 @@ void loop() {
       trigger();
       digitalWrite(alertPin, LOW);
     }
-
-
-    Serial.println(hash);
     
-    lcd.print(myBPM);
+    lcd.print("Your BPM: ");
+    lcd.println(myBPM);
+    pulseSensor.blinkOnPulse(onPin);
     lcd.setCursor(3, 1);
-    
     lcd.print(hash);
+//    digitalWrite(onPin, HIGH);
+    
+    Serial.println(hash);
+
     
     delay(500);
     lcd.clear();
   }
   
   else {
-    Serial.println("turn_off");
+//    Serial.println("turn_off");
     digitalWrite(onPin, LOW);
 
   }
