@@ -11,7 +11,7 @@
 ## 2) Changes to Plan
 - Much of the plan remains the same. However, we had some hurdles we had to go through that made us make slight changes to the overall project. The music being created from the hashes was less than stellar and really wasn't as cool as we thought it would be. Additionally, we were a little disappointed by the lack of interaction. We realized we had to make some changes. 
 
-We watned to create some way for our physical device to be interactive than a stationary box that just output hash numbers and made terrible music. As Wendy Ju mentioned, we should try to make a self-contained device that does not rely on outside softwares. So, we added a heart rate monitor, light sensors, and a speaker to create a more self-contained interactive device. The outline for our process in building in these components is below.
+- We wanted to create some way for our physical device to be interactive than a stationary box that just output hash numbers and made terrible music. As Wendy Ju mentioned, we should try to make a self-contained device that does not rely on outside softwares. So, we added a heart rate monitor, light sensors, and a speaker to create a more self-contained interactive device. The outline for our process in building in these components is below.
 
 ## 4) Process
 Part 1 - Backend
