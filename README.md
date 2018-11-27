@@ -29,9 +29,10 @@
 
 **Part 3 - Physical Design**
 - a) Protoype 1: We first just wanted to design a physical box. We created a paper prototype that had a button, and LED Display, and a light. There was no functionality whatsoever and is highlighted in our first draft [here](https://github.com/bmwise14/crypto_music/blob/master/ProjectDraft.md).
-- b) Prototype 2: Next we wanted to put our raspberry pi, arduino device, external battery, and speakers into a physical box-like object that gives a more sleek and refined look. Here is the new box:
+- b) Prototype 2: Next we wanted to put our raspberry pi, arduino device, external battery, and speakers into a physical box-like object that gives a more sleek and refined look. Here is the inside: ![proto2_inside](https://user-images.githubusercontent.com/10377564/49110514-bce6fb00-f25b-11e8-88a5-e425f2385741.jpg)
+Here is the outside: ![proto2_outside](https://user-images.githubusercontent.com/10377564/49110518-c07a8200-f25b-11e8-9540-65f6bbb8cd61.jpg)
 
-- c) Prototype 3: For our final box, we perforated holes at the seams to create the sleek design. Here is our Illustrator [file](https://github.com/bmwise14/crypto_music/blob/master/crypto-box-new.ai). Here is a look of the prototype before the final one is made: ![box -NEED IMAGE HERE](https://user-images.githubusercontent.com/10377564/49110087-79d85800-f25a-11e8-9c4c-69262121188f.jpg).
+- c) Prototype 3: For our final box, we perforated holes at the seams to create the sleek design. Here is our Illustrator [file](https://github.com/bmwise14/crypto_music/blob/master/crypto-box-new.ai). Here is a look of the prototype before the final one is made: ![box](https://user-images.githubusercontent.com/10377564/49110087-79d85800-f25a-11e8-9c4c-69262121188f.jpg).
 
 ## 3) Final Design and Code 
 - Arduino
