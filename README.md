@@ -30,7 +30,7 @@
 **Part 3 - Physical Design**
 - a) Protoype 1: We first just wanted to design a physical box. We created a paper prototype that had a button, and LED Display, and a light. There was no functionality whatsoever and is highlighted in our first draft [here](https://github.com/bmwise14/crypto_music/blob/master/ProjectDraft.md).
 - b) Prototype 2: Next we wanted to put our raspberry pi, arduino device, external battery, and speakers into a physical box-like object that gives a more sleek and refined look. Here is the new [box -NEED IMAGE HERE]().
-- c) Prototype 3: 
+- c) Prototype 3: For our final box. Here is our Illustrator file for the final box: 
 
 ## 3) Final Design and Code 
 - Arduino
