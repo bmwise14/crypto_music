@@ -28,7 +28,7 @@
 - [Arduino Code](https://github.com/bmwise14/crypto_music/blob/master/arduino/pitches_hashes/pitches_hashes.ino)
 
 **Part 3 - Physical Design**
-- a) Protoype 1: We first just wanted to design a physical box. We created a paper prototype that had a button, and LED Display, and a light. There was no functionality whatsoever and is highlighted in our first draft [here](https://github.com/bmwise14/crypto_music/blob/master/ProjectDraft.md).
+- a) Protoype 1: We first just wanted to design a physical box. We created a paper prototype that had a button, and LED Display, and a light. There was no functionality whatsoever and is highlighted in our first draft [here](https://github.com/bmwise14/crypto_music/blob/master/ProjectDraft.md). ![proto1](https://user-images.githubusercontent.com/3782456/47823314-ff560e80-dd67-11e8-9e69-f67c99c2a042.jpg)
 - b) Prototype 2: Next we wanted to put our raspberry pi, arduino device, external battery, and speakers into a physical box-like object that gives a more sleek and refined look. Here is the inside: ![proto2_inside](https://user-images.githubusercontent.com/10377564/49110514-bce6fb00-f25b-11e8-88a5-e425f2385741.jpg)
 Here is the outside: ![proto2_outside](https://user-images.githubusercontent.com/10377564/49110518-c07a8200-f25b-11e8-9540-65f6bbb8cd61.jpg)
 
