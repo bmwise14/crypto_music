@@ -7,7 +7,7 @@
 //  Variables
 const int PulseWire = A2;       // PulseSensor PURPLE WIRE
 
-int Threshold = 550; // Pulse Threshold
+int Threshold = 450; // Pulse Threshold
 
 int Contrast = 20; // Scren contracts
 
@@ -20,6 +20,8 @@ const int LIGHT_ON_THRESHOLD = 800;
 
 int lightSensorPin = A0; // Light sensor
 int sensorValue = 0;
+
+bool isOff = true;
 
 // initialize the library by associating any needed LCD interface pin
 // with the arduino pin number it is connected to
@@ -47,9 +49,9 @@ void trigger() {
 
   for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
     // scroll one position left:
-    lcd.setCursor(0, 1);
+    lcd.setCursor(0, 0);
     // lcd.scrollDisplayLeft();
-    lcd.print("Making Money");
+    lcd.print("**Making Money**");
   }
   
   playMusic();
@@ -78,11 +80,16 @@ void playMusic(){
 }
 
 
+unsigned long oldTime;
+unsigned long newTime;
+
 void setup() {
   
   Serial.begin(9600);
   randomSeed(analogRead(0));
 
+  oldTime = millis();
+  
   // 
   pinMode(onPin, OUTPUT); // Blue light
   pinMode(alertPin, OUTPUT); //
@@ -104,26 +111,31 @@ void setup() {
   
 }
 
+
 void loop() {
 
   // Light sensor value
   sensorValue = analogRead(lightSensorPin);
 
+  newTime = millis();
+  
   int myBPM = pulseSensor.getBeatsPerMinute();  // Calls function on our pulseSensor object that returns BPM as an "int".
                                                
   if (pulseSensor.sawStartOfBeat()) {            
    Serial.println(myBPM);                        
   }
 
-  if (sensorValue > LIGHT_ON_THRESHOLD and myBPM > 50 and myBPM < 100) {
+  if (sensorValue > LIGHT_ON_THRESHOLD and myBPM > 50 and myBPM < 120) {
     // Notification to turn on Miner
-//    Serial.println("turn_on");
+    Serial.println("turn_on");
+
+    isOff = false;
     
     pulseSensor.blinkOnPulse(onPin);
-    
-//    String hash = readSerial();
-    String hash = testHashes();  
-    
+
+    String hash = readSerial();
+//    String hash = testHashes();  
+//    
     if (hash.indexOf("found_hash") > -1) {
       digitalWrite(alertPin, HIGH);
       delay(500);
@@ -142,21 +154,26 @@ void loop() {
     lcd.print("Hash: " + hash);
 //    digitalWrite(onPin, HIGH);
     
-    Serial.println(hash);
+//    Serial.println(hash);
+    delay(500); 
     
   } else {
-//    Serial.println("turn_off");
+    if (newTime - oldTime > 5000){
+      if (!isOff){
+        Serial.println("turn_off");  
+      }
+      Serial.println("in timer");  
+      oldTime = newTime;
+    }
+    
+    isOff = true;
+    
     digitalWrite(onPin, LOW);
+    
     lcd.print("We are off...");
   }
-  
-  delay(500);
-  
+
   lcd.clear();
-}
-
-void checkBPM(){
-
 }
 
 String testHashes(){
