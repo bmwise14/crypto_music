@@ -17,18 +17,9 @@ var isOff = true;
 
 app.get('/', (req, res) => res.send('We are mining '))
 
-setInterval( sendToServer , 1000)
+// setInterval( sendToServer , 1000)
 
-readFromSerial()
-
-function writeToSerial(num){
-  serial.write(num, (err) => {
-    if (err) {
-      return console.log('Error on write: ', err.message);
-    }
-    console.log('message written', num);
-  });
-}
+// readFromSerial()
 
 var config = {
   cwd: "/home/pi/cpuminer-multi"
@@ -43,6 +34,8 @@ function readFromSerial(){
   serial.pipe(parser);
 
   parser.on('data', function(data) {
+	console.log('data', data);
+
     if (data == "turn_off" && !isOff){
 
       console.log("TURNING OFF", isOff)
@@ -56,14 +49,15 @@ function readFromSerial(){
       }
 
     } else if (data == "turn_on" && isOff) {
-      
+
       console.log("TURNING On", isOff)
 
       isOff = false;
-
-      action = exec(
-        './cpuminer --algo qubit --url stratum+tcp://digihash.co:3012 --user DJMczFzdq2NeBPhBxrFbMJxg98mgWeRWyo --pass',
-        config,
+	  action = exec(
+        "./cpuminer --algo qubit \
+              --url stratum+tcp://digihash.co:3012 \
+              --user DJMczFzdq2NeBPhBxrFbMJxg98mgWeRWyo \
+              --pass anything", config,
         (error, stdout, stderr) => {
           if (error){
             console.error(error);
@@ -71,7 +65,7 @@ function readFromSerial(){
           console.log(stdout);
         });
     }
-    
+
     if (!isOff){
       // console.log('Data:', data);
     }
@@ -85,22 +79,23 @@ function readFromSerial(){
 var prevHash = ""
 
 function sendToServer(){
+  
+  const URL = "http://610c3bae.ngrok.i"
 
   if (isOff){
     return
   }
 
-  
   if (fs.existsSync('../hashes.txt') && fs.existsSync('../result.txt')) {
 
     var found_hashes = fs.readFileSync('../hashes.txt', 'utf8');
     var result_hashes = fs.readFileSync('../result.txt', 'utf8');
-  
+
     console.log("--> hash", found_hashes);
     console.log("--> result", result_hashes);
-    
+
     var hash = found_hashes.split(",")[1];
-    
+
     if (hash != undefined) {
       console.log("Found");
       writeToSerial("found_hash")
@@ -111,27 +106,52 @@ function sendToServer(){
     }
 
     if (hash == "" || hash == undefined || hash == prevHash){
-      hash = "" +  Math.floor(Math.random() * (12389345 - 1) + 1)
+      hash = "" +  Math.floor(Math.random() * (1936711552 - 1) + 1)
     }
 
+    sendToMidi(URL, hash)
+
     writeToSerial(hash)
+    
     console.log(hash);
   } else {
     console.log("Files not found");
   }
+
+  sendToMidi(URL, hash)
+
 }
 
-// function sendReq(hash){
-//   request
-//     .post('http://f3c4c62a.ngrok.io/postjson')
-//     .send({ hash: hash }) // sends a JSON post body
-//     .set('accept', 'json')
-//     .end((err, res) => { // console.log(err, res); 
-//     });
+function writeToSerial(num){
+  serial.write(num, (err) => {
+    if (err) {
+      return console.log('Error on write: ', err.message);
+    }
+    console.log('message written', num);
+  });
+}
+
+/**
+ * 
+ * TESTING
+ */
+setInterval(sendToMidi, 300);
+
+function sendToMidi(url, hash){
+  console.log("sending");
   
-//   var success = result.split(',')[0]
-//   var hashes_computed = result.split(',')[1]
-//   console.log("--> hash", success, hashes_computed);
-// }
+  url = url || "http://610c3bae.ngrok.io/postjson"
+  hash = hash || "8173245892345"
+  
+  request
+    .post(url)
+    .send({ hash: hash }) // sends a JSON post body
+    .set('accept', 'json')
+    .end((err, res) => { // console.log(err, res);
+      if (res != undefined){
+        console.log("sent", err, res);
+      }
+    });
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
