@@ -1,8 +1,8 @@
-# CRYPTO MUSIC 
+# CRYPTO MUSIC SENSATION XCHNAGE (CMSX)
 
 ## TEAM
-- Bradley Wise
-- Rongxin Zhang
+- Bradley Wise (bmw246)
+- Rongxin Zhang (rz345)
 
 ## 1) Initial Draft and Idea
 - Our initial idea was to create a physical box that would create music by sending hashes as midi to a dj platform called Ableton Live. We had set up a miner on the raspberry pi that will be mining a type of cryptocurrency. The mining process would test many different hashes. The idea was to send a small number of these hash numbers to a python script which would be converted to readable midi notes by the computer and have them be displayed through arduino.
@@ -34,10 +34,10 @@ Here is the outside: ![proto2_outside](https://user-images.githubusercontent.com
 
 - c) Prototype 3: For our final box, we perforated holes at the seams to create the sleek design. Here is our Illustrator [file](https://github.com/bmwise14/crypto_music/blob/master/crypto-box-new.ai). Here is a look of the prototype before the final one is made: ![box](https://user-images.githubusercontent.com/10377564/49110087-79d85800-f25a-11e8-9c4c-69262121188f.jpg).
 
-## 3) Final Design and Code 
+## 4) Final Design and Code 
 - Arduino
 - Pi
-- Sensors Used
+- Devices Used
     - Light Sensor
     - LED Display
     - 2 Lights
