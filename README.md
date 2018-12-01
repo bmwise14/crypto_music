@@ -22,7 +22,7 @@
 **Part 2 - Arduino**
 - a) Light Sensor - we wanted to use a light sensor to turn on and off our crypto-miner. Crypto Box only works during the day.
 - b) Heart Rate Monitor - This is will be connected to your finger and will serve as a link to you and the crypto box. The crypto miner's pulse is tied to yours, such that it is only works when you have a pulse.
-- c) LCD Display - The display is used to output your heart rate and show the hashes being mined. It will also display different messages after a successful mine.
+- c) LCD Display - The display is used to output your heart rate and show the hashes being mined. It will also display different messages after a successful mine. Here is the [video](https://www.youtube.com/watch?v=zzGWcZ2E5CY) we used to connect the LCD display without a potentiometer.
 - d) Lights - we have a blue light to signal when a coin has been successfully mined. The red light will chime on and off according to your heart rate. You and the crypto-box will be biologically linked. It only works when you have a pulse.
 - e) Speakers - The speakers will sound a success tone every time a coin has been mined successfully.
 - [Arduino Code](https://github.com/bmwise14/crypto_music/blob/master/arduino/pitches_hashes/pitches_hashes.ino)
