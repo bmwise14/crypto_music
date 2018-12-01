@@ -50,7 +50,6 @@ void trigger() {
   for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
     // scroll one position left:
     lcd.setCursor(0, 0);
-    // lcd.scrollDisplayLeft();
     lcd.print("**Making Money**");
   }
   
@@ -125,7 +124,7 @@ void loop() {
    Serial.println(myBPM);                        
   }
 
-  if (sensorValue > LIGHT_ON_THRESHOLD and myBPM > 50 and myBPM < 120) {
+  if (sensorValue < LIGHT_ON_THRESHOLD and myBPM > 50 and myBPM < 120) {
     // Notification to turn on Miner
     Serial.println("turn_on");
 
