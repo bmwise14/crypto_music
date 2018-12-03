@@ -103,6 +103,9 @@ int scanhash_qubit(int thr_id, struct work *work, uint32_t max_nonce, uint64_t *
 
 				counter ++;
 
+				/*
+				 * BEGIN: Rongxin Custom Update
+				 */
 				if (rand() % 100 < 10){
           if (rand() % 1000 < 1){
             printf("--> hash %d %d \n", hashes_done, hash32);
@@ -113,16 +116,25 @@ int scanhash_qubit(int thr_id, struct work *work, uint32_t max_nonce, uint64_t *
 					fprintf (fp, "%d, %d\n", hashes_done, hash32);
 					fclose (fp);
 				}
+				/*
+				 * END: Custom Update
+				 */
 
 #ifndef DEBUG_ALGO
 				if ((!(hash32[7] & mask)) && fulltest(hash32, ptarget)) {
 					work_set_target_ratio(work, hash32);
+					/*
+					 * BEGIN: Rongxin Custom Update
+					 */
 					*hashes_done = n - first_nonce + 1;
           printf("--> FOUND %d \n", hash32);
 					FILE *fp;
 					fp = fopen ("../result.txt","w");
 					fprintf (fp, "%d,%d\n", hashes_done, hash32);
 					fclose (fp);
+					/*
+					 * END: Rongxin Custom Update
+					 */
 					return 1;
 				}
 #else
@@ -145,7 +157,9 @@ int scanhash_qubit(int thr_id, struct work *work, uint32_t max_nonce, uint64_t *
 	*hashes_done = n - first_nonce + 1;
 	pdata[19] = n;
   
-  // Fake finding a hash
+  /*
+	 * BEGIN: Rongxin Custom Update
+	 */
   if (rand() % 100 < 1){
     printf("--> FAKED FOUND %d %d \n", hashes_done, hash32);
     FILE *fp;
@@ -155,6 +169,9 @@ int scanhash_qubit(int thr_id, struct work *work, uint32_t max_nonce, uint64_t *
   }
 
 	printf("--> hashes done %d \n", hashes_done);
+	/*
+	 * END: Rongxin Custom Update
+	 */
 
 	return 0;
 }
