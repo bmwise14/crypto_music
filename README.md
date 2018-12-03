@@ -32,7 +32,7 @@ c) Send information to Arduino over serial and post them over HTTP to another py
 
 a) Light Sensor - we wanted to use a light sensor to turn on and off our crypto-miner. Crypto Box only works during the day.
 
-b) Heart Rate Monitor - This is will be connected to your finger and will serve as a link to you and the crypto box. The crypto miner's pulse is tied to yours, such that it is only works when you have a pulse.
+b) Heart Rate Monitor - This is will be connected to your finger and will serve as a link to you and the crypto box. The crypto miner's pulse is tied to yours, such that it is only works when you have a pulse. The Heart Rate Monitor was based off the [PulseSensor project](https://pulsesensor.com/pages/code-and-guide). We tied the [PulseSensor_BPM](https://pulsesensor.com/pages/getting-advanced) code in arduino to our own arduino code.
 
 c) LCD Display - The display is used to output your heart rate and show the hashes being mined. It will also display different messages after a successful mine. Here is the [video](https://www.youtube.com/watch?v=zzGWcZ2E5CY) we used to connect the LCD display without a potentiometer.
 
@@ -50,7 +50,7 @@ When we were just testing the internal items
 ### Physical Design:
 ![screen shot 2018-12-02 at 11 21 46 pm](https://user-images.githubusercontent.com/3782456/49352960-12bb0900-f689-11e8-84c3-3f36eef3b9f0.png)
 
-We went through multie iterations to get the correct shape, and design. We mainly used the lazer cutter to create the required shapes for the box. SpecificallWe also used glue guns to join the sections. The full illustrator file can be found  
+We went through multiple iterations to get the correct shape, and design. We mainly used the lazer cutter to create the required shapes for the box. SpecificallWe also used glue guns to join the sections. The full illustrator file can be found  
 [here](./crypto-box-new-final.ai)
 
 
