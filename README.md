@@ -4,16 +4,16 @@
 - Bradley Wise (bmw246)
 - Rongxin Zhang (rz345)
 
-## 1) Initial Draft and Idea
+## Initial Draft and Idea
 ![img_3555](https://user-images.githubusercontent.com/3782456/49352254-059c1b00-f685-11e8-91cd-5b47ff73a587.jpeg)
 Our initial idea was to create a physical box that would create music by sending hashes as midi to a dj platform called Ableton Live. We had set up a miner on the raspberry pi that will be mining a type of cryptocurrency. The mining process would test many different hashes. The idea was to send a small number of these hash numbers to a python script which would be converted to readable midi notes by the computer and have them be displayed through arduino. Please see [ProjectDraft.md](ProjectDraft.md) for more information.
 
-## 2) Changes to Plan
+## Changes to Plan
 Much of the plan remains the same. However, we had some hurdles we had to go through that made us make slight changes to the overall project. The music being created from the hashes was less than stellar and really wasn't as cool as we thought it would be. Additionally, we were a little disappointed by the lack of interaction. We realized we had to make some changes. 
 
 We wanted to create some way for our physical device to be interactive than a stationary box that just output hash numbers and made terrible music. As Wendy Ju mentioned, we should try to make a self-contained device that does not rely on outside softwares. So, we added a heart rate monitor, light sensors, and a speaker to create a more self-contained interactive device. The outline for our process in building in these components is below.
 
-## 4) Componenets
+## Componenets
 ### Raphasberry Pi Server
 
 a) Create a script that mines crypto currency over the raspberry pi
