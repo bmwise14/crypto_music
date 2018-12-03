@@ -20,7 +20,7 @@ a) Create a script that mines crypto currency over the raspberry pi
 
 We leveraged: https://github.com/tpruvot/cpuminer-multi core code, and added additional changes to the code, such that it can communicate with the Arduino over serial ports. Please see the [customized code](./miner/qubit.c) for more information.
   
-b) Create a python script that sends midi notes by a virtual port to Ableton Live (may not be used in final project).
+b) Create a python script that sends midi notes by a virtual port to Ableton Live (may not be used in final project). Please refer to [crypto_music.py](https://github.com/bmwise14/crypto_music/blob/master/crypto_midi/crypto_music.py) in the [crypto midi]((https://github.com/bmwise14/crypto_music/tree/master/crypto_midi) folder.
 
 c) Send information to Arduino over serial and post them over HTTP to another python server which interacts with Ableton as midi to make music.
 
