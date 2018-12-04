@@ -18,7 +18,7 @@ def play_mido(data):
     numbers.append(data['hash'])
 
     for number in numbers:
-        note = sum([int(i) for i in str(random_number)])
+        note = sum([int(i) for i in str(number)])
 
         if note >= 0 and note < 10:
             print(note)
@@ -120,8 +120,8 @@ def play_mido(data):
             msg_stop = mido.Message('note_off', note=41, channel=1) # channel 2 on ableton live
             port.send(msg_stop)
 
-            # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
-            # port.send(arp_stop)
+            arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            port.send(arp_stop)
         elif note >= 30 and note < 35:
             msg = mido.Message('note_on', note=42, channel=1)
             print(note)
@@ -164,7 +164,7 @@ def play_mido(data):
 
             # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
             # port.send(arp_stop)
-            new_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # new_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
             # port.send(new_stop)
         else:
             msg = mido.Message('note_on', note=44, channel=1)
@@ -195,6 +195,8 @@ def show_post():
     print (request.is_json)
     content = request.get_json()
     play_mido(content)
+    time.sleep(5000)
+    return 'okay'
 
 
 app.run(host='localhost', port= 3000)
