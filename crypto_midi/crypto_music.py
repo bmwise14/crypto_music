@@ -18,85 +18,175 @@ def play_mido(data):
     numbers.append(data['hash'])
 
     for number in numbers:
-        note = sum([int(i) for i in str(number)])
+        note = sum([int(i) for i in str(random_number)])
 
-        if note >= 0 and note < 10: # octave 1
-
-            msg = mido.Message('note_on', note=37, channel=1) # channel 2 on ableton live
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=43, channel=2) # channel 3 on ableton live, G2
+        if note >= 0 and note < 10:
             print(note)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
-        if note >= 10 and note < 15: # octave 2
+            msg = mido.Message('note_on', note=37, channel=1) # channel 2 on ableton live
+            port.send(msg)
+
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=37, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
+
+        if note >= 10 and note < 15:
+            msg = mido.Message('note_on', note=38, channel=1) # channel 2 on ableton live
+            print(note)
+            port.send(msg)
+
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=38, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop
+
+        elif note >= 15 and note < 20:
+            msg = mido.Message('note_on', note=39, channel=1)
+            print(note)
+            port.send(msg)
+
+            arp = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=39, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
+
+        elif note >= 20 and note < 25:
+            msg = mido.Message('note_on', note=40, channel=1)
+            print(note)
+            port.send(msg)
+
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
             
-            msg = mido.Message('note_on', note=37, channel=1) # channel 2 on ableton live
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=45, channel=2) # channel 3 on ableton live, G2
-            print(note)
-            port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
-        elif note >= 15 and note < 20: # octave 3
+            time.sleep(0.429)
 
-            msg = mido.Message('note_on', note=40, channel=1)
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=36, channel=2) # channel 3 on ableton live, C2
-            print(note)
-            port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
-        elif note >= 20 and note < 25: # octave 4
-            msg = mido.Message('note_on', note=40, channel=1)
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=43, channel=2) # channel 3 on ableton live, C2
-            print(note)
-            port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
+            msg_stop = mido.Message('note_off', note=40, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
         elif note >= 25 and note < 30:
 
-            msg = mido.Message('note_on', note=40, channel=1)
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=45, channel=2) # channel 3 on ableton live, C2
+            msg = mido.Message('note_on', note=41, channel=1)
             print(note)
             port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
+
+            arp = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(arp)
+
+            
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=41, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
         elif note >= 30 and note < 35:
-
-            msg = mido.Message('note_on', note=40, channel=1)
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=37, channel=2) # channel 3 on ableton live, C2
+            msg = mido.Message('note_on', note=42, channel=1)
             print(note)
             port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
+
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=42, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
         elif note >= 35 and note < 40:
-
-            msg = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live, Drum Rack
-            msg2 = mido.Message('note_on', note=40, channel=1)  # Audio rack
-            msg3 = mido.Message('note_on', note=48, channel=2) # channel 3 on ableton live, C2
+            msg = mido.Message('note_on', note=43, channel=0) # channel 1 on ableton live, Drum Rack
             print(note)
             port.send(msg)
-            # port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
+
+
+            arp = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=43, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            new_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
         else:
-
-            msg = mido.Message('note_on', note=40, channel=1)
-            msg2 = mido.Message('note_on', note=37, channel=0) # channel 1 on ableton live
-            msg3 = mido.Message('note_on', note=42, channel=2) # channel 3 on ableton live, C2
+            msg = mido.Message('note_on', note=44, channel=1)
             print(note)
             port.send(msg)
-            port.send(msg2)
-            port.send(msg3)
-            time.sleep(random.choice(bpm_140))
+
+            arp = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=44, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
 
 
 @app.route('/postjson', methods = ["POST"])
@@ -108,73 +198,3 @@ def show_post():
 
 
 app.run(host='localhost', port= 3000)
-
-
-
-
-
-
-
-## DRUM SECTION
-# for x in range(0, 1000):
-#     note = 40
-#     note_2 = 37
-#     # note = random.randint(33, 48)
-#     # note_2 = random.randint(33, 48)
-#     vel = random.randint(0, 100)
-#     vel_2 = random.randint(0, 100)
-
-#     port.send(mido.Message('note_on', 
-#                             note=note, 
-#                             velocity=vel, 
-#                             channel=1))
-#     print(note, vel)
-#     time.sleep(0.6)
-
-#     port.send(
-#         mido.Message(
-#             'note_on',
-#             note=note,
-#             velocity=vel,
-#             channel=1
-#         ))
-#     print(note, vel)
-#     time.sleep(0.2)
-
-#     port.send(mido.Message('note_on', 
-#                             note=note_2, 
-#                             velocity=vel_2, 
-#                             channel=1))
-#     print(note_2, vel_2)
-#     time.sleep(0.4)
-    
-#     port.send(
-#         mido.Message(
-#             'note_on',
-#             note=note,
-#             velocity=vel,
-#             channel=1
-#         ))
-#     print(note, vel)
-#     time.sleep(0.8)
-
-#     port.send(
-#         mido.Message(
-#             'note_on',
-#             note=note,
-#             velocity=vel,
-#             channel=1
-#         ))
-#     print(note, vel)
-#     time.sleep(0.4)
-
-#     port.send(mido.Message('note_on', 
-#                             note=note_2, 
-#                             velocity=vel_2, 
-#                             channel=1))
-#     print(note_2, vel_2)
-#     time.sleep(0.8)
-
-# mid = mido.MidiFile('song.mid')
-# for msg in mid.play():
-#     port.send(msg)

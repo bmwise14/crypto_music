@@ -24,38 +24,87 @@ def play_mido():
 
             arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
 
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=37, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
+
         if note >= 10 and note < 15:
             msg = mido.Message('note_on', note=38, channel=1) # channel 2 on ableton live
             print(note)
             port.send(msg)
 
-            arp = mido.Message('note_on', note=53, channel=4) # channel 3 on ableton live
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
 
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=53, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=38, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop
+
         elif note >= 15 and note < 20:
             msg = mido.Message('note_on', note=39, channel=1)
             print(note)
             port.send(msg)
 
-            arp = mido.Message('note_on', note=54, channel=4) # channel 3 on ableton live
+            arp = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
 
 
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=54, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=39, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+            # arp_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
+
         elif note >= 20 and note < 25:
             msg = mido.Message('note_on', note=40, channel=1)
+            print(note)
+            port.send(msg)
+
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
+            port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
+
+            
+            time.sleep(0.429)
+
+            msg_stop = mido.Message('note_off', note=40, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
+        elif note >= 25 and note < 30:
+
+            msg = mido.Message('note_on', note=41, channel=1)
             print(note)
             port.send(msg)
 
@@ -65,61 +114,76 @@ def play_mido():
             
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
-        elif note >= 25 and note < 30:
+            msg_stop = mido.Message('note_off', note=41, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
 
-            msg = mido.Message('note_on', note=41, channel=1)
-            print(note)
-            port.send(msg)
-
-            arp = mido.Message('note_on', note=56, channel=4) # channel 3 on ableton live
-            port.send(arp)
-
-            
-            time.sleep(0.429)
-
-            arp_stop = mido.Message('note_off', note=56, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
         elif note >= 30 and note < 35:
             msg = mido.Message('note_on', note=42, channel=1)
             print(note)
             port.send(msg)
 
-            arp = mido.Message('note_on', note=57, channel=4) # channel 3 on ableton live
+            arp = mido.Message('note_on', note=52, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
 
             
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=57, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=42, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=52, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
+
         elif note >= 35 and note < 40:
             msg = mido.Message('note_on', note=43, channel=0) # channel 1 on ableton live, Drum Rack
             print(note)
             port.send(msg)
 
-            arp = mido.Message('note_on', note=58, channel=4) # channel 3 on ableton live
+
+            arp = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
+            port.send(new)
 
             
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=58, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=43, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            new_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
         else:
             msg = mido.Message('note_on', note=44, channel=1)
             print(note)
             port.send(msg)
 
-            arp = mido.Message('note_on', note=59, channel=4) # channel 3 on ableton live
+            arp = mido.Message('note_on', note=48, channel=4) # channel 3 on ableton live
             port.send(arp)
+            new = mido.Message('note_on', note=55, channel=4) # channel 3 on ableton live
+            port.send(new)
 
             
             time.sleep(0.429)
 
-            arp_stop = mido.Message('note_off', note=59, channel=4) # channel 3 on ableton live
-            port.send(arp_stop)
+            msg_stop = mido.Message('note_off', note=44, channel=1) # channel 2 on ableton live
+            port.send(msg_stop)
+
+
+            # arp_stop = mido.Message('note_off', note=48, channel=4) # channel 3 on ableton live
+            # port.send(arp_stop)
+            # new_stop = mido.Message('note_off', note=55, channel=4) # channel 3 on ableton live
+            # port.send(new_stop)
 
 
 
