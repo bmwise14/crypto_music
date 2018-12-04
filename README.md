@@ -29,7 +29,6 @@ c) Send information to Arduino over serial and post them over HTTP to another py
 ![img_3508](https://user-images.githubusercontent.com/3782456/49352379-9f63c800-f685-11e8-977a-3b825ce01def.jpeg)
 
 ** Devices Used:** Rhasberry Pi, Arduino, Light Sensor, LED Display, 2 Lights, Heart Rate Monitor
-- Here is the full **[Arduino Code](https://github.com/bmwise14/crypto_music/blob/master/arduino/pitches_hashes/pitches_hashes.ino)**
 
 a) Light Sensor - we wanted to use a light sensor to turn on and off our crypto-miner. Crypto Box only works during the day.
 
@@ -42,6 +41,9 @@ d) Lights - we have a blue light to signal when a coin has been successfully min
 e) Speakers - The speakers will sound a success tone every time a coin has been mined successfully.
 
 e) Power Pack - Since we wanted this item to be competely portable, we added a large power pack that could power the entire operation.
+
+f) **[Arduino Code](https://github.com/bmwise14/crypto_music/blob/master/arduino/pitches_hashes/pitches_hashes.ino)**
+
 
 #### Demo Video:
 When we were just testing the internal items
