@@ -195,7 +195,7 @@ def show_post():
     print (request.is_json)
     content = request.get_json()
     play_mido(content)
-    time.sleep(5000)
+    # time.sleep(5000)
     return 'okay'
 
 
